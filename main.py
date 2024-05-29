@@ -15,6 +15,7 @@ cookies_dir = './cookies'
 from EdgeGPT.EdgeGPT import Chatbot
 from aiohttp import web
 
+import webbrowser
 
 def generate_hex_string(length):
     hex_digits = '0123456789ABCDEF'
@@ -64,6 +65,10 @@ async def sydney_process_message(user_message, bot_mode, context, _U, KievRPSSec
             ) and i < max_retries:
                 print("Retrying...", i + 1, "attempts.")
                 await asyncio.sleep(0.1)
+            elif "CAPTCHA" in str(e):
+                yield {"type": "error", "error": f"请复制以下cookies值:<br>{cookies}<br>并粘贴到 https://bing.deem.love 的Cookie设置中，齿轮按钮点击-一键重置-设置-Cookie 设置-打开-完整 Cookie-右键粘贴-保存-确定，并进行一次聊天以绕过验证码"}
+                webbrowser.open("https://bing.deem.love")
+                break
             else:
                 if i == max_retries:
                     print("Failed after", max_retries, "attempts.")
@@ -200,7 +205,7 @@ async def main(host, port):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", "-H", help="host:port for the server", default="localhost:65432")
+    parser.add_argument("--host", "-H", help="host:port for the server", default="0.0.0.0:65432")
     parser.add_argument("--proxy", "-p", help='proxy address like "http://localhost:7890"',
                         default=urllib.request.getproxies().get('https'))
     args = parser.parse_args()
