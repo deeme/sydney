@@ -15,8 +15,6 @@ cookies_dir = './cookies'
 from EdgeGPT.EdgeGPT import Chatbot
 from aiohttp import web
 
-import webbrowser
-
 def generate_hex_string(length):
     hex_digits = '0123456789ABCDEF'
     return ''.join(random.choice(hex_digits) for _ in range(length))
@@ -66,8 +64,7 @@ async def sydney_process_message(user_message, bot_mode, context, _U, KievRPSSec
                 print("Retrying...", i + 1, "attempts.")
                 await asyncio.sleep(0.1)
             elif "CAPTCHA" in str(e):
-                yield {"type": "error", "error": f'请复制最后 cookies 内容，并按照说明进行操作：        1. 前往 https://bing.deem.love        2. 打开设置中的 Cookie 设置        3. 粘贴刚才复制的 cookies 并保存        4. 完成后进行一次聊天以绕过验证码        cookies：        {loaded_cookies}'}
-                webbrowser.open_new_tab("https://binga.deem.love")
+                yield {"type": "error", "error": '请前往 https://bing*.deem.love (*对应账号比如deembear0001就是1，即 https://bing1.deem.love )进行一次聊天以绕过验证码'}
                 break
             else:
                 if i == max_retries:
