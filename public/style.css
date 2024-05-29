@@ -1,0 +1,228 @@
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url("background.png");
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 1184px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.heading {
+  color: #444;
+  font-size: 1.5em;
+  margin-top: -5px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  margin-top: -15px;
+  border-radius: 5px;
+}
+
+.textarea {
+  width: 100%;
+  margin-top: -18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+
+.root-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.button {
+  margin-left: 3px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button[disabled] {
+  background-color: gray;
+}
+
+.selector {
+  margin-bottom: 10px;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.12), 0 1.6px 3.6px rgba(0, 0, 0, 0.16);
+  font-size: 16px;
+  width: fit-content;
+  max-width: 768px;
+  position: relative;
+}
+
+.user-message {
+  color: white;
+  background-image: linear-gradient(90deg, #904887 10.79%, #8B257E 87.08%);
+  align-self: flex-end;
+}
+
+.assistant-message {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.other-message {
+  background-color: rgba(255, 255, 255, 0.3);
+  align-self: flex-end;
+}
+
+.message * {
+  margin-block: 0;
+}
+
+.add-button,
+.delete-button,
+.edit-button {
+  box-shadow: 0 0.3px 0.9px rgba(0, 0, 0, 0.12), 0 1.6px 3.6px rgba(0, 0, 0, 0.16);
+  position: absolute;
+  top: -36px;
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.delete-button {
+  right: 0;
+}
+
+.edit-button {
+  right: 36px;
+}
+
+.add-button {
+  right: 72px;
+}
+
+.add-button:hover,
+.delete-button:hover,
+.edit-button:hover {
+  background-color: rgb(255, 255, 255, 0.06);
+}
+
+img[alt^="image"] {
+  border-radius: 15px;
+  width: 206px;
+  height: 206px;
+  border: 6px solid transparent;
+  transition: transform 0.3s;
+}
+
+img[alt^="image"]:hover {
+  transform: scale(1.1);
+}
+
+img[alt="up_image"] {
+  border-radius: 15px;
+  width: 206px;
+  height: auto;
+  border: 6px solid transparent;
+  transition: transform 0.3s;
+}
+
+img[alt="up_image"]:hover {
+  transform: scale(1.1);
+}
+
+img[alt="bg_upload_image"] {
+  width: 0px;
+  height: 0px;
+}
+
+#image_upload {
+  align-items: center;
+}
+
+.switch {
+  margin-left: 10px;
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 31px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 4px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #007BFF;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 31px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
