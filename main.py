@@ -200,7 +200,7 @@ async def main(host, port):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--host", "-H", help="host:port for the server", default="0.0.0.0:65432")
+    parser.add_argument("--host", "-H", help="host:port for the server", default="localhost:65432")
     parser.add_argument("--proxy", "-p", help='proxy address like "http://localhost:7890"',
                         default=urllib.request.getproxies().get('https'))
     args = parser.parse_args()
@@ -209,11 +209,7 @@ if __name__ == '__main__':
     host, port = args.host.split(":")
     port = int(port)
 
-    loop = asyncio.get_event_loop()
     try:
-        loop.run_until_complete(main(host, port))
-        loop.run_forever()
+        asyncio.run(main(host, port))
     except KeyboardInterrupt:
         pass
-    finally:
-        loop.close()
