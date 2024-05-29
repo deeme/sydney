@@ -209,7 +209,11 @@ if __name__ == '__main__':
     host, port = args.host.split(":")
     port = int(port)
 
+    loop = asyncio.get_event_loop()
     try:
-        asyncio.run(main(host, port))
+        loop.run_until_complete(main(host, port))
+        loop.run_forever()
     except KeyboardInterrupt:
         pass
+    finally:
+        loop.close()
