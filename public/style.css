@@ -29,9 +29,12 @@ body {
   border-radius: 5px;
 }
 
+.suggestion {
+  margin-top: -18px;
+}
+
 .textarea {
   width: 100%;
-  margin-top: -18px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;

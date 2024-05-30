@@ -964,13 +964,13 @@
                         <label htmlFor="gpt4turbo-switch">  启用 GPT-4-Turbo:</label>
                         <input type="checkbox" id="gpt4turbo-switch" checked={enable_gpt4turbo}
                             onChange={event => setEnable_gpt4turbo(event.target.checked)} />
-                        <label htmlFor="search-switch">  启用搜索：</label>
+                        <label htmlFor="search-switch">  启用搜索:</label>
                         <input type="checkbox" id="search-switch" checked={enableSearch}
                             onChange={event => setEnableSearch(event.target.checked)} />
-                        <label htmlFor="suggestion-switch">  接受建议：</label>
+                        <label htmlFor="suggestion-switch">  接受建议:</label>
                         <input type="checkbox" id="suggestion-switch" checked={acceptSuggestions}
                             onChange={event => setAcceptSuggestions(event.target.checked)} />
-                        <label htmlFor="continue-switch">  自动继续：</label>
+                        <label htmlFor="continue-switch">  自动继续:</label>
                         <input type="checkbox" id="continue-switch" checked={continueOnRevoke}
                             onChange={event => setContinueOnRevoke(event.target.checked)} />
                         <label class="switch">
@@ -983,7 +983,7 @@
                                     onChange={handleUploadImage} />
                             </label>
                         </h3>
-                        <div id="suggestedResponsesContainer">
+                        <div id="suggestedResponsesContainer" className="suggestion">
                             {(previousMessages[previousMessages.length - 1].revoked ?
                                 ["Continue from your last sentence", "从你的上一句话继续", "あなたの最後の文から続けてください"] :
                                 previousMessages[previousMessages.length - 1].suggestions)?.map(suggestion =>
