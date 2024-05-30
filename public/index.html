@@ -870,19 +870,21 @@
             }, []);
 
 
-            React.useEffect(() => {
-                fetch(`https://api.deem.love/v1/models`)
-                    .then(response => response.json())
-                    .then(data => {
-                        let dropdown = document.getElementById('bot-type-selector');
-                        data.data.forEach(model => {
-                            let option = document.createElement('option');
-                            option.value = model.id;
-                            option.text = model.id;
-                            dropdown.add(option);
-                        });
-                    });
-            }, []);
+						React.useEffect(() => {
+								fetch(`https://api.deem.love/v1/models`)
+										.then(response => response.json())
+										.then(data => {
+												let dropdown = document.getElementById('bot-type-selector');
+												data.data
+														.filter(model => model.id !== "bing" && model.id !== "bing-online")
+														.forEach(model => {
+																let option = document.createElement('option');
+																option.value = model.id;
+																option.text = model.id;
+																dropdown.add(option);
+														});
+										});
+						}, []);
 
 
             const [cookieFiles, setCookieFiles] = React.useState([]);
