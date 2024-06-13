@@ -64,7 +64,7 @@ async def sydney_process_message(user_message, bot_mode, context, _U, KievRPSSec
                 print("Retrying...", i + 1, "attempts.")
                 await asyncio.sleep(0.1)
             elif "CAPTCHA" in str(e):
-                yield {"type": "error", "error": '账号需要验证，打开 https://bing1.deem.love 聊一次自动过验证(账号deembear0002则改对应地址为bing2，依此类推)，还不行就微信我DeemBr'}
+                yield {"type": "error", "error": '账号需要验证，如急需可以微信我DeemBr'}
                 break
             else:
                 if i == max_retries:
