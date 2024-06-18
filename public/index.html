@@ -876,7 +876,7 @@
 										.then(data => {
 												let dropdown = document.getElementById('bot-type-selector');
 												data.data
-														.filter(model => model.id !== "bing" && model.id !== "bing-online")
+														//.filter(model => model.id !== "bing" && model.id !== "bing-online")
 														.forEach(model => {
 																let option = document.createElement('option');
 																option.value = model.id;
