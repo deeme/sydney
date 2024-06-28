@@ -67,7 +67,7 @@ async def sydney_process_message(user_message, bot_mode, context, _U, KievRPSSec
                 print("Retrying...", i + 1, "attempts.")
                 await asyncio.sleep(0.1)
             elif "CAPTCHA" in str(e):
-                yield {"type": "error", "error": '账号需要验证，如急需可以微信我DeemBr'}
+                yield {"type": "error", "error": '账号需要验证，如急需可以微信我 DeemBr'}
                 break
             else:
                 if i == max_retries:
@@ -118,7 +118,7 @@ async def http_handler(request):
     response = web.FileResponse(full_path)
     response.headers['Cache-Control'] = 'no-store'
 
-    # 修改http_handler以添加CORS头
+    # 修改 http_handler 以添加 CORS 头
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
@@ -196,7 +196,7 @@ async def websocket_handler(request):
 async def main(host, port):
     app = web.Application()
 
-    # 设置CORS 跨域
+    # 设置 CORS 跨域
     cors = cors_setup(app, defaults={
         "*": ResourceOptions(
             allow_credentials=True,
