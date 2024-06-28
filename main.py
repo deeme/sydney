@@ -15,9 +15,6 @@ cookies_dir = './cookies'
 from EdgeGPT.EdgeGPT import Chatbot
 from aiohttp import web
 
-# 设置跨域访问
-from aiohttp_cors import setup as cors_setup, ResourceOptions
-
 def generate_hex_string(length):
     hex_digits = '0123456789ABCDEF'
     return ''.join(random.choice(hex_digits) for _ in range(length))
@@ -117,9 +114,6 @@ async def http_handler(request):
         raise web.HTTPForbidden()
     response = web.FileResponse(full_path)
     response.headers['Cache-Control'] = 'no-store'
-
-    # 修改 http_handler 以添加 CORS 头
-    response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
 async def get_cookie_files(request):
@@ -195,16 +189,6 @@ async def websocket_handler(request):
 
 async def main(host, port):
     app = web.Application()
-
-    # 设置 CORS 跨域
-    cors = cors_setup(app, defaults={
-        "*": ResourceOptions(
-            allow_credentials=True,
-            expose_headers="*",
-            allow_headers="*",
-            allow_methods="*"
-        )
-    })
 
     # 添加路由
     app.router.add_get('/ws/', websocket_handler)

@@ -799,7 +799,7 @@
             const [myPrompts, setMyPrompts] = React.useState([]);
 
             React.useEffect(() => {
-                fetch("/prompts-my.json")
+                fetch("https://gcore.jsdelivr.net/gh/deembear/DeemBear.github.io/resources/prompts-my.json")
                     .then((res) => res.json())
                     .then((PromptsData) => {
                         setMyPrompts(PromptsData);
