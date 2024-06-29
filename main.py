@@ -64,7 +64,7 @@ async def sydney_process_message(user_message, bot_mode, context, _U, KievRPSSec
                 print("Retrying...", i + 1, "attempts.")
                 await asyncio.sleep(0.1)
             elif "CAPTCHA" in str(e):
-                yield {"type": "error", "error": '账号需要验证，如急需可以微信我 DeemBr'}
+                yield {"type": "error", "error": '账号需要验证，如急需可以微信我DeemBr'}
                 break
             else:
                 if i == max_retries:
@@ -189,8 +189,6 @@ async def websocket_handler(request):
 
 async def main(host, port):
     app = web.Application()
-
-    # 添加路由
     app.router.add_get('/ws/', websocket_handler)
     app.router.add_get('/cookie-files', get_cookie_files)  # 添加新的路由
     app.router.add_get('/{tail:.*}', http_handler)
