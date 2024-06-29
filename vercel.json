@@ -10,9 +10,9 @@
     {
       "src": "/(.*)",
       "dest": "main.py",
-      "ws": "/ws/(.*)",
-      "coo": "/cookie-files/(.*)",
-      "tail": "/{tail:.*}/(.*)"
+      "ws": "/ws/",
+      "coo": "/cookie-files",
+      "tail": "/{tail:.*}"
     }
   ]
 }
