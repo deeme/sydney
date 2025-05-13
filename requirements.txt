@@ -10,3 +10,4 @@ slack_sdk
 emoji
 EdgeGPT==0.11.8
 openai
+pkg_resources
